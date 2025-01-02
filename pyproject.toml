@@ -23,7 +23,7 @@ keywords = [
 
 [tool.poetry.dependencies]
 # Core dependencies
-python = "^3.8, <3.11"
+python = "^3.10, <3.11"
 pandas = "^1.1.0"
 scipy = ">=1.8.0"
 numpy = "^1.21.0"
@@ -37,7 +37,7 @@ skorch = "^0.11.0"
 cython = "^0.29.21"
 
 # Dependencies for TSEMO and SOBO
-GPy = "^1.8"
+GPy = "1.13.2"
 gpyopt = "^1.2.6"
 pyrff = "^2.0.1"
 pymoo = "^0.6.0"
