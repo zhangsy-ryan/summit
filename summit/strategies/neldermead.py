@@ -920,10 +920,10 @@ class NelderMead(Strategy):
         if tmp_x_iter:
             for key, value in tmp_x_iter.items():
                 if value is not None:
-                    if key is "xbar":
+                    if key == "xbar":
                         tmp_x_iter[key] = np.delete(value, overfull_dim)
                         continue
-                    if key is "x_shrink":
+                    if key == "x_shrink":
                         for v in range(len(value)):
                             tmp_x_iter[key][v] = [
                                 np.delete(value[v][0], overfull_dim),
@@ -941,10 +941,10 @@ class NelderMead(Strategy):
     def downstream_simplex_dim_red(self, tmp_x_iter, overfull_dim, save_dim):
         for key, value in tmp_x_iter.items():
             if value is not None:
-                if key is "xbar":
+                if key == "xbar":
                     tmp_x_iter[key] = np.insert(value, overfull_dim, save_dim)
                     continue
-                if key is "x_shrink":
+                if key == "x_shrink":
                     for v in range(len(value)):
                         tmp_x_iter[key][v] = [
                             np.insert(value[v][0], overfull_dim, save_dim),
