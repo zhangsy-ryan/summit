@@ -11,7 +11,7 @@ import pathlib
 import uuid
 import json
 import logging
-import pkg_resources
+import importlib.metadata
 
 __all__ = ["experiment_from_dict", "Runner", "NeptuneRunner"]
 
@@ -303,7 +303,7 @@ class NeptuneRunner(Runner):
         self.ref = hypervolume_ref if hypervolume_ref is not None else n_objs * [0]
 
         # Check that Neptune-client is installed
-        installed = {pkg.key for pkg in pkg_resources.working_set}
+        installed = {pkg for pkg in importlib.metadata.packages_distributions().keys()}
         if "neptune-client" not in installed:
             raise RuntimeError(
                 "Neptune-client not installed. Use pip install summit[experiments] to add extra dependencies."

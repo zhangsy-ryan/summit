@@ -199,10 +199,10 @@ class ENTMOOT(Strategy):
                 "constraints."
             )
 
-        import pkg_resources
+        import importlib.metadata
 
         required = {"gurobipy"}
-        installed = {pkg.key for pkg in pkg_resources.working_set}
+        installed = {pkg.key for pkg in importlib.metadata.distributions().keys()}
         self.gurobi_missing = required - installed
 
         """

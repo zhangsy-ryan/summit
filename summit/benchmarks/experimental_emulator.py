@@ -55,7 +55,7 @@ from copy import deepcopy
 from itertools import product
 from collections import defaultdict
 from copy import deepcopy
-import pkg_resources
+import importlib.resources
 import time
 import json
 import types
@@ -1477,11 +1477,11 @@ registry.register(ANNRegressor)
 
 
 def get_data_path():
-    return pathlib.Path(pkg_resources.resource_filename("summit", "benchmarks/data"))
+    return pathlib.Path(importlib.resources.files("summit") / "benchmarks/data")
 
 
 def get_model_path():
-    return pathlib.Path(pkg_resources.resource_filename("summit", "benchmarks/models"))
+    return pathlib.Path(importlib.resources.files("summit") / "benchmarks/models")
 
 
 def get_pretrained_reizman_suzuki_emulator(case=1):

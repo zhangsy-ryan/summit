@@ -13,7 +13,7 @@
 import os
 import sys
 import subprocess
-import pkg_resources
+import importlib.metadata
 import datetime
 
 sys.path.insert(0, os.path.abspath("../.."))
@@ -28,7 +28,7 @@ copyright = f"{year}, Summit Authors"
 author = "Kobi Felton and Summit Authors"
 
 # The full version, including alpha/beta/rc tags
-release = pkg_resources.get_distribution("summit").version
+release = importlib.metadata.version("summit")
 
 
 # -- General configuration ---------------------------------------------------

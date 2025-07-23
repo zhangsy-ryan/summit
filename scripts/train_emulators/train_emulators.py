@@ -4,15 +4,13 @@ from summit.utils.dataset import DataSet
 import pandas as pd
 import matplotlib.pyplot as plt
 import logging
-import pkg_resources
+import importlib.resources
 import pathlib
 from tqdm import trange, tqdm
 import argparse
 
-DATA_PATH = pathlib.Path(pkg_resources.resource_filename("summit", "benchmarks/data"))
-MODELS_PATH = pathlib.Path(
-    pkg_resources.resource_filename("summit", "benchmarks/models")
-)
+DATA_PATH = pathlib.Path(importlib.resources.files("summit") / "benchmarks/data")
+MODELS_PATH = pathlib.Path(importlib.resources.files("summit") / "benchmarks/models")
 SUMMARY_FILE = "README.md"
 MAX_EPOCHS = 1000
 CV_FOLDS = 5

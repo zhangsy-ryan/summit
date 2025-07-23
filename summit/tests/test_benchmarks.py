@@ -7,10 +7,10 @@ import pandas as pd
 import os
 import pathlib
 import shutil
-import pkg_resources
+import importlib.metadata
 import matplotlib.pyplot as plt
 
-DATA_PATH = pathlib.Path(pkg_resources.resource_filename("summit", "benchmarks/data"))
+DATA_PATH = pathlib.Path(importlib.metadata.files("summit") / "benchmarks/data")
 
 
 @pytest.mark.parametrize("noise_level", [0.0, 2.5])
